@@ -17,7 +17,9 @@ const Home = () => {
     async function getAllBooks() {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:4000/books");
+        const response = await axios.get(
+          "https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/"
+        );
         setBooks(response.data.data);
         setLoading(false);
       } catch (error) {

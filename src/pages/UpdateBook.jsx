@@ -20,7 +20,9 @@ const UpdateBook = () => {
     async function showBook(){
       try {
         setLoading(true)
-        const response = await axios.get(`http://localhost:4000/books/${id}`)
+        const response = await axios.get(
+          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/${id}`
+        );
         setTitle(response.data.title)
         setAuthor(response.data.author)
         setPublishYear(response.data.PublishYear)
@@ -42,7 +44,10 @@ const UpdateBook = () => {
     async function updateBook(){
       try {
         setLoading(true)
-         await axios.put(`http://localhost:4000/books/${id}`, data)
+         await axios.put(
+           `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/${id}`,
+           data
+         );
         setLoading(false)
         enqueueSnackbar("Book updated Successfully", { variant: "success" });
         navigate('/')

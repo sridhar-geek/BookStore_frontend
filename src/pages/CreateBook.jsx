@@ -24,7 +24,10 @@ const CreateBook = () => {
     async function createBook(){
       try {
         setLoading(true)
-         await axios.post('http://localhost:4000/books', data)
+         await axios.post(
+           "https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/",
+           data
+         );
         setLoading(false)
         enqueueSnackbar('Book created Successfully', {variant: 'success'})
         navigate('/')
