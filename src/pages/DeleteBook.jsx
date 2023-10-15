@@ -18,7 +18,7 @@ const DeleteBook = () => {
     async function DeleteBook(){
       try {
         await axios.delete(
-          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/${id}`
+          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books${id}`
         );
         setloading(false)
         enqueueSnackbar("Book deleted Successfully", { variant: "success" });

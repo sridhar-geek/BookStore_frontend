@@ -14,7 +14,7 @@ const ShowBook = () => {
       try {
         setLoading(true)
         const response = await axios.get(
-          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/${id}`
+          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books${id}`
         );
         setBook(response.data)
         setLoading(false)

@@ -25,7 +25,7 @@ const CreateBook = () => {
       try {
         setLoading(true)
          await axios.post(
-           "https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/",
+           "https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books",
            data
          );
         setLoading(false)

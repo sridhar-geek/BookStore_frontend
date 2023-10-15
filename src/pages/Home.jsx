@@ -18,7 +18,7 @@ const Home = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/"
+          "https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books"
         );
         setBooks(response.data.data);
         setLoading(false);

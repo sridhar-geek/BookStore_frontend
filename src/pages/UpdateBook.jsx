@@ -21,7 +21,7 @@ const UpdateBook = () => {
       try {
         setLoading(true)
         const response = await axios.get(
-          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/${id}`
+          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books${id}`
         );
         setTitle(response.data.title)
         setAuthor(response.data.author)
@@ -45,7 +45,7 @@ const UpdateBook = () => {
       try {
         setLoading(true)
          await axios.put(
-           `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/${id}`,
+           `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books${id}`,
            data
          );
         setLoading(false)
