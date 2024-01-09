@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import  {useState, useEffect} from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSnackbar } from "notistack";
+import axios from 'axios'
 
 import Spinner from '../Components/Spinner'
 import BackButton from '../Components/backButton'
@@ -17,19 +17,19 @@ const UpdateBook = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   useEffect(()=> {
-    async function showBook(){
+    const showBook =async()=> {
       try {
         setLoading(true)
         const response = await axios.get(
-          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books${id}`
+          `${import.meta.env.VITE_SERVER_URL}/books/${id}`
         );
         setTitle(response.data.title)
         setAuthor(response.data.author)
         setPublishYear(response.data.PublishYear)
         setLoading(false)
       } catch (error) {
-        console.log(error)
         setLoading(false)
+        enqueueSnackbar("Error occured in retrieving", { variant: "error" });
       }
     }
     showBook()
@@ -45,7 +45,7 @@ const UpdateBook = () => {
       try {
         setLoading(true)
          await axios.put(
-           `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books${id}`,
+           `${import.meta.env.VITE_SERVER_URL}/books/${id}`,
            data
          );
         setLoading(false)
@@ -53,8 +53,7 @@ const UpdateBook = () => {
         navigate('/')
       } catch (error) {
         setLoading(false)
-        enqueueSnackbar("Error occured", { variant: "error" });
-        // console.log(error)
+        enqueueSnackbar("Updation failed", { variant: "error" });
       }
     }
     updateBook(); 
@@ -63,7 +62,7 @@ const UpdateBook = () => {
   return (
     <div className='p-4'>
       <BackButton />
-      <h1 className='text-3xl my-4'>Create Book</h1>
+      <h1 className='text-3xl my-4'>Edit Book</h1>
       {loading ? <Spinner /> : ''}
       <div className='flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto'>
         <div className='my-4'>

@@ -1,0 +1,5 @@
+export {default as Home} from './Home'
+export {default as ShowBook} from './ShowBook'
+export {default as CreateBook} from './CreateBook'
+export {default as UpdateBook} from './UpdateBook'
+export {default as DeleteBook} from './DeleteBook'

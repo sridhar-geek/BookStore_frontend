@@ -1,5 +1,7 @@
+/**It is single book card component which are mapped in BookCard */
 import { Link } from "react-router-dom"
 import { useState } from "react"
+import PropTypes from "prop-types";
 
 import { PiBookOpenTextLight } from "react-icons/pi"
 import { BiUserCircle, BiShow } from "react-icons/bi"
@@ -7,6 +9,7 @@ import { AiOutlineEdit } from "react-icons/ai"
 import { BsInfoCircle } from "react-icons/bs"
 import { MdOutlineDelete } from "react-icons/md"
 
+//Imports from another files
 import BookModal from "./BookModel";
 
 const BookSingleCard = ({ book }) => {
@@ -47,5 +50,6 @@ const BookSingleCard = ({ book }) => {
     </div>
   );
 };
+
 
 export default BookSingleCard

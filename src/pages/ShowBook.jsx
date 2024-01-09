@@ -1,7 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import  {useState, useEffect} from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useSnackbar } from "notistack";
 
+// Imports from another files
 import BackButton from '../Components/backButton'
 import Spinner from '../Components/Spinner'
 
@@ -9,17 +11,19 @@ const ShowBook = () => {
   const [book, setBook] = useState([]);
   const [loading, setLoading] = useState(false)
   const {id} = useParams()
+      const { enqueueSnackbar } = useSnackbar();
+
   useEffect(()=> {
     async function showBook(){
       try {
         setLoading(true)
         const response = await axios.get(
-          `https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books${id}`
+          `${import.meta.env.VITE_SERVER_URL}/books/${id}`
         );
         setBook(response.data)
         setLoading(false)
       } catch (error) {
-        console.log(error)
+        enqueueSnackbar("Error in retrieviewing book", { variant: "error" });
         setLoading(false)
       }
     }

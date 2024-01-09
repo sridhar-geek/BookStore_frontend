@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useSnackbar } from "notistack";
 
 import { BiBookAdd } from "react-icons/bi";
-
+// Imports from another files
 import Spinner from "../Components/Spinner";
 import BookCard from "../Components/Book/BookCard";
 import BookTable from "../Components/Book/BookTable";
@@ -13,18 +14,19 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [showType, setShowType] = useState("table");
 
+    const { enqueueSnackbar } = useSnackbar();
+    
   useEffect(() => {
     async function getAllBooks() {
       try {
         setLoading(true);
-        const response = await axios.get(
-          "https://book-store-backend-hm2j-pedd3kp67-sridhar-geek.vercel.app/books"
-        );
+        const response = await axios.get(`${import.meta.env.VITE_SERVER_URL}/books`);
         setBooks(response.data.data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
         setLoading(false);
+        enqueueSnackbar("Server Error", { variant: "error" });
+
       }
     }
     getAllBooks();

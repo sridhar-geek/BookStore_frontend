@@ -1,3 +1,5 @@
+/**This component shows brief intro about the book or displays book discription */
+
 import { AiOutlineClose } from "react-icons/ai";
 import { PiBookOpenTextLight } from "react-icons/pi";
 import { BiUserCircle } from "react-icons/bi";
@@ -28,7 +30,7 @@ const BookModal = ({ book, onClose }) => {
           <BiUserCircle className="text-red-300 text-2xl" />
           <h2 className="my-1">{book.author}</h2>
         </div>
-        <p className="mt-4">Breif Inro about the Book</p>
+        <p className="mt-4 text-lg font-bold">Breif Inro about the Book</p>
         <p className="my-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quia
           voluptatum sint. Nisi impedit libero eveniet cum vitae qui expedita

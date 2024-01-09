@@ -1,12 +1,7 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import CreateBook from './pages/CreateBook'
-import UpdateBook from './pages/UpdateBook'
-import Home from './pages/Home'
-import DeleteBook from './pages/DeleteBook'
-import ShowBook from './pages/ShowBook'
-
+// Imports from another files
+import {CreateBook, UpdateBook, Home, ShowBook, DeleteBook} from './pages'
 
 const App = () => {
   return (

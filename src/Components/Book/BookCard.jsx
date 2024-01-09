@@ -1,8 +1,7 @@
-import React from "react";
+/** This component is used to display Book Cards in HomePage */
 
+// Imports from anthor files
 import BookSingleCard from "./BookSingleCard";
-
-console.log('something is printed')
 const BookCard = ({ books }) => {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
